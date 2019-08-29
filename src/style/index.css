@@ -1,0 +1,59 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+div::-webkit-scrollbar {
+  display: none;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+}
+
+.flex1 {
+  flex: 1;
+}
+
+.p20 {
+  padding: 20px;
+}
+
+.mt {
+  margin-top: 20px;
+}
+
+.ml {
+  margin-left: 20px;
+}
+
+.mr {
+  margin-right: 20px;
+}
+
+.mb {
+  margin-bottom: 20px;
+}
+
+.pt {
+  padding-top: 20px;
+}
+
+.pl {
+  padding-left: 20px;
+}
+
+.pr {
+  padding-right: 20px;
+}
+
+.pb {
+  padding-bottom: 20px;
+}

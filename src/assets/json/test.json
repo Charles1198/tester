@@ -1,0 +1,179 @@
+[
+  {
+    "id": "01",
+    "name": "项目名",
+    "description": "项目描述",
+    "type": "web",
+    "test": {
+      "functionTest": [
+        {
+          "id": "0001",
+          "name": "模块名",
+          "children": [
+            {
+              "id": "0001-0001",
+              "name": "页面名",
+              "children": [
+                {
+                  "id": "0001-0001-0001",
+                  "name": "测试功能点1",
+                  "testStep": "测试步骤",
+                  "expectantResult": "预期结果",
+                  "testResult": "测试结果",
+                  "status": 0,
+                  "remark": "备注",
+                  "conner": "测试人",
+                  "connerId": "测试人id"
+                },
+                {
+                  "id": "0001-0001-0002",
+                  "name": "测试功能点2",
+                  "testStep": "测试步骤",
+                  "expectantResult": "预期结果",
+                  "testResult": "测试结果",
+                  "status": 1,
+                  "remark": "备注",
+                  "conner": "测试人",
+                  "connerId": "测试人id"
+                },
+                {
+                  "id": "0001-0001-0003",
+                  "name": "测试功能点3",
+                  "testStep": "测试步骤",
+                  "expectantResult": "预期结果",
+                  "testResult": "测试结果",
+                  "status": 2,
+                  "remark": "备注",
+                  "conner": "测试人",
+                  "connerId": "测试人id"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "formTest": [
+        {
+          "id": "0001",
+          "name": "测试内容1",
+          "target": "测试目标",
+          "children": [
+            {
+              "id": "0001-0001",
+              "name": "测试功能点1",
+              "testStep": "测试步骤",
+              "expectantResult": "预期结果",
+              "testResult": "测试结果",
+              "status": 0,
+              "remark": "备注",
+              "conner": "测试人",
+              "connerId": "测试人id"
+            },
+            {
+              "id": "0001-0002",
+              "name": "测试功能点2",
+              "testStep": "测试步骤",
+              "expectantResult": "预期结果",
+              "testResult": "测试结果",
+              "status": 1,
+              "remark": "备注",
+              "conner": "测试人",
+              "connerId": "测试人id"
+            },
+            {
+              "id": "0001-0003",
+              "name": "测试功能点3",
+              "testStep": "测试步骤",
+              "expectantResult": "预期结果",
+              "testResult": "测试结果",
+              "status": 2,
+              "remark": "备注",
+              "conner": "测试人",
+              "connerId": "测试人id"
+            }
+          ]
+        },
+        {
+          "id": "0002",
+          "name": "测试内容2",
+          "target": "测试目标",
+          "children": [
+            {
+              "id": "0002-0001",
+              "name": "测试功能点1",
+              "testStep": "测试步骤",
+              "expectantResult": "预期结果",
+              "testResult": "测试结果",
+              "status": 0,
+              "remark": "备注",
+              "conner": "测试人",
+              "connerId": "测试人id"
+            },
+            {
+              "id": "0002-0002",
+              "name": "测试功能点2",
+              "testStep": "测试步骤",
+              "expectantResult": "预期结果",
+              "testResult": "测试结果",
+              "status": 1,
+              "remark": "备注",
+              "conner": "测试人",
+              "connerId": "测试人id"
+            },
+            {
+              "id": "0002-0003",
+              "name": "测试功能点3",
+              "testStep": "测试步骤",
+              "expectantResult": "预期结果",
+              "testResult": "测试结果",
+              "status": 2,
+              "remark": "备注",
+              "conner": "测试人",
+              "connerId": "测试人id"
+            }
+          ]
+        },
+        {
+          "id": "0003",
+          "name": "测试内容3",
+          "target": "测试目标",
+          "children": [
+            {
+              "id": "0003-0001",
+              "name": "测试功能点1",
+              "testStep": "测试步骤",
+              "expectantResult": "预期结果",
+              "testResult": "测试结果",
+              "status": 0,
+              "remark": "备注",
+              "conner": "测试人",
+              "connerId": "测试人id"
+            },
+            {
+              "id": "0003-0002",
+              "name": "测试功能点2",
+              "testStep": "测试步骤",
+              "expectantResult": "预期结果",
+              "testResult": "测试结果",
+              "status": 1,
+              "remark": "备注",
+              "conner": "测试人",
+              "connerId": "测试人id"
+            },
+            {
+              "id": "0003-0003",
+              "name": "测试功能点3",
+              "testStep": "测试步骤",
+              "expectantResult": "预期结果",
+              "testResult": "测试结果",
+              "status": 2,
+              "remark": "备注",
+              "conner": "测试人",
+              "connerId": "测试人id"
+            }
+          ]
+        }
+      ]
+    }
+  }
+]
