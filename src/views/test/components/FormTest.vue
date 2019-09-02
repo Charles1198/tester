@@ -1,5 +1,5 @@
 <template>
-  <div class="p20">
+  <div v-if="testItem" class="p20">
     <div v-if="isTest">
       <el-divider content-position="left">功能测试点</el-divider>
       <div class="pl pr pb">{{ testItem.name }}</div>
@@ -17,7 +17,7 @@
       </div>
       <el-divider content-position="left">测试状态</el-divider>
       <div class="pl pr pb">
-        <el-radio-group v-model="radio">
+        <el-radio-group>
           <el-radio :label="3">待测试</el-radio>
           <el-radio :label="6">通过</el-radio>
           <el-radio :label="9">不通过</el-radio>
@@ -39,7 +39,7 @@
       </div>
       <el-divider content-position="left">测试状态</el-divider>
       <div class="pl pr pb">
-        <el-radio-group v-model="radio">
+        <el-radio-group>
           <el-radio :label="3">待测试</el-radio>
           <el-radio :label="6">通过</el-radio>
           <el-radio :label="9">不通过</el-radio>
@@ -54,36 +54,12 @@ export default {
   name: 'formTest',
   data() {
     return {
-      isTest: this.$router.history.current.meta.test,
-      testItem: null
+      isTest: this.$router.history.current.meta.test
     }
   },
   computed: {
-    selectedTestMenuId() {
-      return this.$store.state.selectedTestMenuId
-    }
-  },
-  watch: {
-    selectedTestMenuId: {
-      handler() {
-        const project = this.$store.state.project
-        this.setupTestItem(this.selectedTestMenuId, project.test.formTest)
-      },
-      immediate: true
-    }
-  },
-  methods: {
-    setupTestItem(id, items) {
-      for (let i = 0; i < items.length; i++) {
-        const item = items[i]
-        if (id.startsWith(item.id)) {
-          if (id === item.id) {
-            this.testItem = item
-          } else {
-            this.setupTestItem(id, item.children)
-          }
-        }
-      }
+    testItem() {
+      return this.$store.state.selectedTestItem
     }
   }
 }

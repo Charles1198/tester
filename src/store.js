@@ -1,9 +1,13 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import axios from 'axios'
 
 import projects from './assets/json/test.json'
 
 Vue.use(Vuex)
+
+const projectName = 'tester'
+const serverUrl = 'http://test-api-tomcat.bqteam.com/charles-service-api-0.0.1/api/v1/common/kv'
 
 export default new Vuex.Store({
   state: {
@@ -52,7 +56,64 @@ export default new Vuex.Store({
       state.selectedTestMenuId = id
 
       // 递归遍历state.project，找出id等于state.selectedTestMenuId的测试点（即state.selectedTestItem）
+      if (id.startsWith('fu')) {
+        state.selectedTestItem = setupTestItem(id, state.project.test.functionTest)
+      } else if (id.startsWith('fo')) {
+        state.selectedTestItem = setupTestItem(id, state.project.test.formTest)
+      }
+    },
+
+    saveChange(state, testItem) {
+      // 递归遍历state.project，找出id等于testItem.id的测试点，进行替换
+      if (testItem.id.startsWith('fu')) {
+        state.selectedTestItem = saveChange(testItem, state.project.test.functionTest)
+      } else if (testItem.id.startsWith('fo')) {
+        state.selectedTestItem = saveChange(testItem, state.project.test.formTest)
+      }
+
+      const projectsString = JSON.stringify(state.projects)
+      axios
+        .post(serverUrl, {
+          k: projectName,
+          v: projectsString
+        })
+        .then(function(response) {
+          // eslint-disable-next-line no-console
+          console.log(response)
+        })
+        .catch(function(error) {
+          // eslint-disable-next-line no-console
+          console.log(error)
+        })
     }
   },
   actions: {}
 })
+
+export function setupTestItem(id, items) {
+  for (let i = 0; i < items.length; i++) {
+    const item = items[i]
+    if (id.startsWith(item.id)) {
+      if (id === item.id) {
+        return item
+      } else {
+        return setupTestItem(id, item.children)
+      }
+    }
+  }
+}
+
+export function saveChange(testItem, items) {
+  const id = testItem.id
+
+  for (let i = 0; i < items.length; i++) {
+    if (id.startsWith(items[i].id)) {
+      if (id === items[i].id) {
+        items[i] = testItem
+        return testItem
+      } else {
+        return saveChange(testItem, items[i].children)
+      }
+    }
+  }
+}

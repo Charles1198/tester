@@ -13,7 +13,7 @@
       <!-- 非根节点 -->
       <div v-if="menu.children" class="menu-label" @click="onClickCloseIcon(menu.id)">{{ menu.name }}</div>
       <!-- 根节点 -->
-      <div v-else class="menu-label" @click="onClickMenuItem(menu.id)">{{ menu.name }}</div>
+      <div v-else :class="labelClass" @click="onClickMenuItem(menu.id)">{{ menu.name }}</div>
 
       <div v-if="isTest" v-show="!menu.children" class="menu-dashed-line"></div>
       <!-- 是否通过 -->
@@ -46,6 +46,14 @@ export default {
   data() {
     return {
       isTest: this.$router.history.current.meta.test
+    }
+  },
+  computed: {
+    selectedTestItem() {
+      return this.$store.state.selectedTestItem
+    },
+    labelClass() {
+      return this.selectedTestItem.id === this.menu.id ? 'menu-label-selected' : 'menu-label'
     }
   },
   methods: {
@@ -83,11 +91,21 @@ export default {
     line-height: 30px;
   }
 
+  &-label-selected {
+    cursor: pointer;
+    line-height: 30px;
+    color: #67C23A;
+  }
+
   &-dashed-line {
     border-top: 2px dashed #eee;
     flex: 1;
     margin: 0 12px;
   }
+
+  &:hover {
+  background: #f0f8fd;
+}
 }
 
 .icon-circle {
